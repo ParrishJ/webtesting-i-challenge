@@ -28,5 +28,10 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  let modifier = `[+${item.enhancement}]`
+  if (item.enhancement === 0) {
+    return { ...item }
+  } if (item.enhancement > 0) {
+    return { ...item, name: modifier.concat(' ', item.name) }
+  }
 }
